@@ -1,0 +1,49 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>add-new-item</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar color="success">
+      <ion-title size="large" color="light">Add new cost</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-textarea label="Cost" placeholder="Type something here" [(ngModel)]="costCategory"></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-select label="Priority" placeholder="Pick priority" [(ngModel)]="costPriority">
+          <ion-select-option value="low">Low</ion-select-option>
+          <ion-select-option value="medium">Medium</ion-select-option>
+          <ion-select-option value="high">High</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-textarea label="Amount" placeholder="Type something here" [(ngModel)]="costAmount"></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+        <ion-modal [keepContentsMounted]="true">
+          <ng-template>
+            <ion-datetime id="datetime" [(ngModel)]="costDate"></ion-datetime>
+          </ng-template>
+        </ion-modal>
+      </ion-item>
+
+      <ion-item>
+        <ion-button expand="full" (click)="addCost()">Add cost</ion-button>
+      </ion-item>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>

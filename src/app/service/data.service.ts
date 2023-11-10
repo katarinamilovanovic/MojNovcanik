@@ -14,40 +14,30 @@ import {
   prioritet: string;
   iznos: number;
   }
-  export interface Zabava {
-    datum: string;
-    mesec: string;
-    prioritet: string;
-    iznos: number;
+  export interface Cost {
+    id?: number,
+    amount?: number;
+    date: string;
+    done: boolean;
+    priority: string;
+    category: string;
   }
-  export interface Prevoz {
-    datum: string;
-    mesec: string;
-    prioritet: string;
-    iznos: number;
-  }
-  export interface Garderoba {
-    datum: string;
-    mesec: string;
-    prioritet: string;
-    iznos: number;
-  }
-  export interface Nega {
-    datum: string;
-    mesec: string;
-    prioritet: string;
-    iznos: number;
-  }
-  export interface Hrana {
-    datum: string;
-    mesec: string;
-    prioritet: string;
-    iznos: number;
+  export interface User {
+    email?: number;
+    name: string;
+    surname: string;
+    password: string;
   }
 @Injectable({
   providedIn: 'root'
 })
 export class DataService {
 
-  constructor() { }
+  constructor(private firestore: Firestore) { }
+
+  addCost(cost: Cost) {
+    const costsRef = collection(this.firestore, 'costs');
+    return addDoc(costsRef, cost);
+  }
+
 }
