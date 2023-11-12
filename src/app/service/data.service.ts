@@ -8,22 +8,18 @@ import {
   deleteDoc, 
   addDoc
   } from '@angular/fire/firestore';
-  export interface Stan_i_racuni {
-  datum: string;
-  mesec: string;
-  prioritet: string;
-  iznos: number;
-  }
+  import { updateDoc } from 'firebase/firestore';
+
+  
   export interface Cost {
-    id?: number,
-    amount?: number;
+    id?: number;
+    amount: string;
     date: string;
-    done: boolean;
     priority: string;
     category: string;
   }
   export interface User {
-    email?: number;
+    email: string;
     name: string;
     surname: string;
     password: string;
@@ -35,9 +31,33 @@ export class DataService {
 
   constructor(private firestore: Firestore) { }
 
+  getCosts() {
+    const costsRef = collection(this.firestore, 'costs');
+    return collectionData(costsRef, { idField: 'id' });
+  }
+
+ 
+
+  //sa celim objektom
+  deleteCost(cost: Cost) {
+    const costRef = doc(this.firestore, `costs/${cost.id}`);
+    return deleteDoc(costRef);
+  }
+
   addCost(cost: Cost) {
     const costsRef = collection(this.firestore, 'costs');
     return addDoc(costsRef, cost);
   }
+
+  updateCost(cost: Cost) {
+    const costRef = doc(this.firestore, `costs/${cost.id}`);
+    return updateDoc(costRef, {
+      date: cost.date,
+      priority: cost.priority,
+      category: cost.category,
+      amount: cost.amount
+    });
+  }
+
 
 }

@@ -8,11 +8,12 @@ import { DataService } from '../service/data.service';
   templateUrl: './add-new-item.page.html',
   styleUrls: ['./add-new-item.page.scss'],
 })
+
 export class AddNewItemPage implements OnInit {
   costCategory!: string
   costPriority!: string
-  costDate: string = '2023-10-24T00:00:00'
-  costAmount?: number;
+  costAmount!: string
+  costDate: string = '2023-11-12T00:00:00';
 
   constructor(public modalCtrl: ModalController, private dataservice: DataService) { }
 
@@ -27,10 +28,9 @@ export class AddNewItemPage implements OnInit {
     await this.dataservice.addCost(
       {
         category: this.costCategory,
-        date: this.costDate,
         priority: this.costPriority,
         amount: this.costAmount,
-        done: false
+        date: this.costDate
       }
     );
 

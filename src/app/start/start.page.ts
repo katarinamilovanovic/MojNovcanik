@@ -1,60 +1,63 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ModalController } from '@ionic/angular';
 import { AddNewItemPage } from '../add-new-item/add-new-item.page';
 import { UpdateItemPage } from '../update-item/update-item.page';
+//import Task from '';
 
-type Cost={
-  amount?: number,
-  category?: string,
-  date?: Date,
-  priority?: string,
-  id?: number
-}
+
+import { Cost, DataService } from '../service/data.service';
+import { Subscription } from 'rxjs';
+
 
 @Component({
   selector: 'app-start',
-  templateUrl: './start.page.html',
-  styleUrls: ['./start.page.scss'],
+  templateUrl: 'start.page.html',
+  styleUrls: ['start.page.scss'],
 })
-export class StartPage implements OnInit {
+export class StartPage implements OnInit, OnDestroy {
 
   today: number = Date.now();
-  costs: Array<Cost> = [];
+  costs: any;
+  sub: Subscription = new Subscription;
 
+  constructor(
+    public modalCtrl: ModalController,
+    private dataService: DataService) { }
 
-  constructor(public modalCtrl: ModalController) { }
+  ngOnDestroy(): void {
+    this.sub.unsubscribe();
+  }
 
-  ngOnInit() {
-    this.costs = [
-      {
-      category: "Gas",
-      date: new Date(),
-      amount: 2000,
-      priority: 'High',
-      id: 1
-      },
-      {
-      category: "Clothes",
-      date: new Date(),
-      amount: 4000,
-      priority: 'High',
-      id: 2
-      }
-      ]
-      
+  ngOnInit(): void {
+    this.getData();
+  }
+
+  async getData() {
+    this.sub = this.dataService.getCosts().subscribe((res) => {
+      this.costs = res;
+      console.log(this.costs);
+    });
+  }
+
+  async deleteCost(cost: any) {
+    await this.dataService.deleteCost(cost);
   }
 
   async goToAddPage() {
     const modal = await this.modalCtrl.create({
-    component: AddNewItemPage
+      component: AddNewItemPage
     })
     return await modal.present();
-    }
-    async goToUpdatePage(cost: Cost) {
+  }
+
+  async goToUpdatePage(cost:Cost) {
+
     const modal = await this.modalCtrl.create({
-    component: UpdateItemPage,
-    componentProps: cost
+      component: UpdateItemPage,
+      componentProps: { cost }
     })
-    return await modal.present(); } 
+    console.log(cost)
+    return await modal.present();
+  }
 
 }

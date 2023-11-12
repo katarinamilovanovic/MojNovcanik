@@ -14,7 +14,8 @@ const routes: Routes = [
   {
     path: 'register',
     loadChildren: () => import('./register/register.module').then( m => m.RegisterPageModule)
-  },  {
+  },
+  {
     path: 'start',
     loadChildren: () => import('./start/start.module').then( m => m.StartPageModule)
   },
@@ -26,8 +27,6 @@ const routes: Routes = [
     path: 'update-item',
     loadChildren: () => import('./update-item/update-item.module').then( m => m.UpdateItemPageModule)
   },
-
-
 
 ];
 

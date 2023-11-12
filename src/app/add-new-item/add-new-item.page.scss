@@ -1,7 +1,18 @@
-ion-card{
-    margin-top: 150px;
-}
 ion-content {
-    --background: var(--ion-color-success);
+    --background: #a2f2f1;
   }
 
+  ion-title {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+ }
+
+ ion-button {
+    color: black;
+    
+}
+
+  
