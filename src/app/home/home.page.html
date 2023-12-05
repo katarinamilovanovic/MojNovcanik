@@ -1,11 +1,11 @@
 <ion-content>
- 
-  <div class="flex-center">
+<ion-img src="assets/images/header.svg"></ion-img>
+
+
 
    <ion-card>
      <ion-card-header>
-       <ion-card-title color="success ">MY WALLET</ion-card-title>
-       <ion-card-subtitle>Log in</ion-card-subtitle>
+       <ion-card-title >Log In</ion-card-title>
      </ion-card-header>
    
      <ion-card-content>
@@ -17,12 +17,14 @@
          <ion-label position="floating">Password</ion-label>
          <ion-input type="password"></ion-input>
        </ion-item>
-       <ion-button color="success" size="full">LOG IN</ion-button>
-       <ion-button color="success" size="full">SIGN UP</ion-button>
+       <ion-button size="full">LOG IN</ion-button>
+       <div>
+        <br>
+       <p>Nemate nalog? <a [routerLink]="['/register']">Registrujte se</a></p>
+       </div>
      </ion-card-content>
    </ion-card>
 
-  </div>
 
   
   
