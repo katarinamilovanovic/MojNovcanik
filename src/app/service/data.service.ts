@@ -18,6 +18,12 @@ import {
     priority: string;
     category: string;
   }
+  export interface Income {
+    id?: number;
+    amount: string;
+    date: string;
+    category: string;
+  }
   export interface User {
     email: string;
     name: string;
@@ -35,6 +41,10 @@ export class DataService {
     const costsRef = collection(this.firestore, 'costs');
     return collectionData(costsRef, { idField: 'id' });
   }
+  getIncomes() {
+    const incomesRef = collection(this.firestore, 'incomes');
+    return collectionData(incomesRef, { idField: 'id' });
+  }
 
  
 
@@ -43,10 +53,18 @@ export class DataService {
     const costRef = doc(this.firestore, `costs/${cost.id}`);
     return deleteDoc(costRef);
   }
+  deleteIncome(income: Income) {
+    const incomeRef = doc(this.firestore, `incomes/${income.id}`);
+    return deleteDoc(incomeRef);
+  }
 
   addCost(cost: Cost) {
     const costsRef = collection(this.firestore, 'costs');
     return addDoc(costsRef, cost);
+  }
+  addIncome(income: Income) {
+    const incomesRef = collection(this.firestore, 'incomes');
+    return addDoc(incomesRef, income);
   }
 
   updateCost(cost: Cost) {
@@ -56,6 +74,14 @@ export class DataService {
       priority: cost.priority,
       category: cost.category,
       amount: cost.amount
+    });
+  }
+  updateIncome(income: Income) {
+    const incomeRef = doc(this.firestore, `incomes/${income.id}`);
+    return updateDoc(incomeRef, {
+      date: income.date,
+      category: income.category,
+      amount: income.amount
     });
   }
 

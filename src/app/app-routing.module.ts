@@ -26,7 +26,23 @@ const routes: Routes = [
   {
     path: 'update-item',
     loadChildren: () => import('./update-item/update-item.module').then( m => m.UpdateItemPageModule)
+  },  {
+    path: 'start2',
+    loadChildren: () => import('./start2/start2.module').then( m => m.Start2PageModule)
   },
+  {
+    path: 'add-new-item2',
+    loadChildren: () => import('./add-new-item2/add-new-item2.module').then( m => m.AddNewItem2PageModule)
+  },
+  {
+    path: 'update-item2',
+    loadChildren: () => import('./update-item2/update-item2.module').then( m => m.UpdateItem2PageModule)
+  },
+  {
+    path: 'pick-collection',
+    loadChildren: () => import('./pick-collection/pick-collection.module').then( m => m.PickCollectionPageModule)
+  },
+
 
 ];
 

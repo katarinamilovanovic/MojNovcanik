@@ -1,0 +1,31 @@
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    
+      <ion-title size="large">MY INCOMES</ion-title>
+    
+  </ion-header>
+  <ion-list *ngFor="let income of incomes">
+    <ion-card>
+      <ion-card-header>
+        <ion-card-title>{{income.category}}</ion-card-title>
+      </ion-card-header>
+
+      <ion-card-content>
+        <p>AMOUNT: {{income.amount}}</p>
+        <p>DATE: {{income.date | date:'fullDate'}}</p>
+        <ion-row horizontal="end">
+          <ion-button (click)="goToUpdatePage2(income)" fill="clear">UPDATE</ion-button>
+          <ion-button (click) = "deleteIncome(income)" fill="clear">DELETE</ion-button>
+        </ion-row>
+      </ion-card-content>
+    </ion-card>
+  </ion-list>
+
+  <ion-fab vertical="bottom" horizontal="center">
+    <ion-fab-button (click)="goToAddPage2()">
+      <ion-icon name="add"></ion-icon>
+    </ion-fab-button>
+
+  </ion-fab>
+</ion-content>
+

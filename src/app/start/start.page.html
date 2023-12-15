@@ -6,21 +6,24 @@
     
   </ion-header>
   <ion-list *ngFor="let cost of costs">
-    <ion-card>
-      <ion-card-header>
-        <ion-card-title>{{cost.category}}</ion-card-title>
-      </ion-card-header>
 
-      <ion-card-content>
-        <p>AMOUNT: {{cost.amount}}</p>
-        <p>PRIORITY: {{cost.priority}}</p>
-        <p>DATE: {{cost.date | date:'fullDate'}}</p>
-        <ion-row horizontal="end">
-          <ion-button (click)="goToUpdatePage(cost)" fill="clear">UPDATE</ion-button>
-          <ion-button (click) = "deleteCost(cost)" fill="clear">DELETE</ion-button>
-        </ion-row>
-      </ion-card-content>
-    </ion-card>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>{{cost.category}}</ion-card-title>
+        </ion-card-header>
+  
+        <ion-card-content>
+          <p>AMOUNT: {{cost.amount}}</p>
+          <p>PRIORITY: {{cost.priority}}</p>
+          <p>DATE: {{cost.date | date:'fullDate'}}</p>
+          <ion-row horizontal="end">
+            <ion-button (click)="goToUpdatePage(cost)" fill="clear">UPDATE</ion-button>
+            <ion-button (click) = "deleteCost(cost)" fill="clear">DELETE</ion-button>
+          </ion-row>
+        </ion-card-content>
+      </ion-card>
+
+  
   </ion-list>
 
   <ion-fab vertical="bottom" horizontal="center">
@@ -29,4 +32,8 @@
     </ion-fab-button>
 
   </ion-fab>
+
+
+
+
 </ion-content>

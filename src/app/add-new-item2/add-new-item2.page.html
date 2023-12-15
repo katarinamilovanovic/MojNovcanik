@@ -1,0 +1,38 @@
+
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    
+      <ion-title size="large">ADD NEW INCOME</ion-title>
+    
+  </ion-header>
+  
+  <ion-card>
+    
+    <ion-card-content>
+      <p><ion-icon size="large" name="close-circle-outline" (click)="dismiss()"></ion-icon></p>
+      <ion-item>
+        <ion-textarea label="CATEGORY" placeholder="Type something here" [(ngModel)]="incomeCategory"></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-textarea label="AMOUNT" placeholder="Type something here" [(ngModel)]="incomeAmount"></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-datetime presentation="date-time" [preferWheel]="true"></ion-datetime>
+
+        <ion-modal [keepContentsMounted]="true">
+          <ng-template>
+            <ion-datetime id="datetime" [(ngModel)]="incomeDate"></ion-datetime>
+          </ng-template>
+        </ion-modal>
+      </ion-item>
+
+      <ion-item>
+        <ion-button size="big" expand="full" fill="clear" (click)="addIncome()">ADD INCOME</ion-button>
+      </ion-item>
+
+    </ion-card-content>
+    </ion-card>
+ 
+</ion-content>

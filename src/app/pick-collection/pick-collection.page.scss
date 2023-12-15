@@ -1,13 +1,23 @@
-
-
- ion-title {
+.cards {
+    margin-top:170px;
+}
+ion-title {
     
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100%;
  }
- ion-button {
+ ion-content {
+    --background: #455EE8;
+  }
+ion-list {
+    
+ --background: #455EE8;
+      
+}
+
+ion-button {
   color: white;
   
 }
@@ -18,5 +28,4 @@ ion-fab-button {
   --box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.3), 0px 1px 3px 1px rgba(0, 0, 0, 0.15);
   --color:white;
 }
-
 
