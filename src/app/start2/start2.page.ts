@@ -7,6 +7,7 @@ import { UpdateItem2Page } from '../update-item2/update-item2.page';
 
 import { Income, DataService } from '../service/data.service';
 import { Subscription } from 'rxjs';
+import { PickCollectionPage } from '../pick-collection/pick-collection.page';
 
 
 @Component({
@@ -57,6 +58,13 @@ export class Start2Page implements OnInit, OnDestroy {
       componentProps: { income }
     })
     console.log(income)
+    return await modal.present();
+  }
+
+  async goToPickCollectionPage() {
+    const modal = await this.modalCtrl.create({
+      component: PickCollectionPage
+    })
     return await modal.present();
   }
 

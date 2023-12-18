@@ -2,9 +2,12 @@
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
     
-      <ion-title size="large">MY COSTS</ion-title>
+    <p><ion-icon size="large" name="close-circle-outline" (click)="goToPickCollectionPage()"></ion-icon></p>
+    <ion-title size="large">MY COSTS</ion-title>
+      
     
   </ion-header>
+
   <ion-list *ngFor="let cost of costs">
 
       <ion-card>

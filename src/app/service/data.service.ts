@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 
+
 import {
   collection,
   Firestore,
@@ -46,9 +47,7 @@ export class DataService {
     return collectionData(incomesRef, { idField: 'id' });
   }
 
- 
 
-  //sa celim objektom
   deleteCost(cost: Cost) {
     const costRef = doc(this.firestore, `costs/${cost.id}`);
     return deleteDoc(costRef);
@@ -75,7 +74,9 @@ export class DataService {
       category: cost.category,
       amount: cost.amount
     });
+
   }
+
   updateIncome(income: Income) {
     const incomeRef = doc(this.firestore, `incomes/${income.id}`);
     return updateDoc(incomeRef, {
