@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ModalController } from '@ionic/angular';
-
 import { DataService } from '../service/data.service';
 
 @Component({

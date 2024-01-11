@@ -1,31 +1,33 @@
-<ion-content>
-<ion-img src="assets/images/header.svg"></ion-img>
+<ion-content class="ion-padding">
+  <ion-img src="assets/images/header.png"></ion-img>
 
 
 
-   <ion-card>
-     <ion-card-header>
-       <ion-card-title >Log In</ion-card-title>
-     </ion-card-header>
-   
-     <ion-card-content>
-       <ion-item>
-         <ion-label position="floating">Email</ion-label>
-         <ion-input type="email"></ion-input>
-       </ion-item>
-       <ion-item>
-         <ion-label position="floating">Password</ion-label>
-         <ion-input type="password"></ion-input>
-       </ion-item>
-       <ion-button size="full">LOG IN</ion-button>
-       <div>
-        <br>
-       <p>Nemate nalog? <a [routerLink]="['/register']">Registrujte se</a></p>
-       </div>
-     </ion-card-content>
-   </ion-card>
+  <ion-card>
+    <ion-card-header>
+      <ion-card-title>Log In</ion-card-title>
+    </ion-card-header>
+
+    <ion-card-content>
+      <div class="form">
+        <ion-item>
+          <ion-label position="floating">Email</ion-label>
+          <ion-input [(ngModel)]="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position='floating'>Password</ion-label>
+          <ion-input [(ngModel)]='password'></ion-input>
+        </ion-item>
+        <ion-button size="full" (click)='login()'>LOG IN</ion-button>
+        <div>
+          <br>
+          <h5 (click)='signup()'>Nemate nalog? <ion-text>Registrujte se</ion-text></h5>
+        </div>
+      </div>
+    </ion-card-content>
+  </ion-card>
 
 
-  
-  
+
+
 </ion-content>

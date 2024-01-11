@@ -25,12 +25,7 @@ import {
     date: string;
     category: string;
   }
-  export interface User {
-    email: string;
-    name: string;
-    surname: string;
-    password: string;
-  }
+  
 @Injectable({
   providedIn: 'root'
 })
