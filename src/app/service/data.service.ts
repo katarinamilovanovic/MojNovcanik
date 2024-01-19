@@ -9,7 +9,7 @@ import {
   deleteDoc, 
   addDoc
   } from '@angular/fire/firestore';
-  import { updateDoc } from 'firebase/firestore';
+  import { updateDoc } from '@angular/fire/firestore';
 
   
   export interface Cost {

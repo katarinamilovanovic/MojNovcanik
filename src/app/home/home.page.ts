@@ -24,14 +24,17 @@ export class HomePage implements OnInit{
 
   login(){
     this.authenticationService.loginWithEmail({email:this.email,password:this.password}).then(res=>{
+      console.log("Prosao login");
       console.log(res);
       if(res.user.uid){
+        let user_id = res.user.uid;
+        // this.authenticationService.getDetails({uid:user_id})
         this.authenticationService.getDetails({uid:res.user.uid}).subscribe(res=>{
           console.log(res);
-          //alert('Welcome '+ res['name']);
-        },err=>{
-          console.log(err);
-        });
+        //alert('Welcome '+ res['name']);
+      },err=>{
+        console.log(err);
+      });
       }
     },err=>{
       alert(err.message)

@@ -1,7 +1,8 @@
 import { Injectable } from '@angular/core';
 import {AngularFireAuth} from '@angular/fire/compat/auth';
 import { collectionData, Firestore } from '@angular/fire/firestore';
-import { addDoc, collection } from '@firebase/firestore';
+import { collection, addDoc } from '@angular/fire/firestore';
+// import { addDoc, collection } from '@firebase/firestore';
 import { dismiss } from '@ionic/core/dist/types/utils/overlays';
 
 export interface User {
@@ -38,13 +39,14 @@ export class AuthenticationService {
   }
 
   saveDetails(data: User){
+    console.log(this.firestore);
     const userData = collection(this.firestore, 'users');
     return addDoc(userData, data);
   }
 
   getDetails(data: { uid: any; }){
     const details = collection(this.firestore, 'users');
-    return collectionData(details, {idField: 'uid'});
+    return collectionData(details, {idField: data.uid});
   }
 
 }
