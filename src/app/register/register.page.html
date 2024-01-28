@@ -15,9 +15,9 @@
         </ion-item>
         <ion-item>
           <ion-label position="floating">Password</ion-label>
-          <ion-input [(ngModel)]="password"></ion-input>
+          <ion-input [(ngModel)]='password' placeholder="************" type="password"></ion-input>
         </ion-item>
-        <ion-button size="full" color="light" (click)='signup()'>Registruj se</ion-button>
+        <ion-button size="full" color="light" (click)='goToHomePage()' (click)='signup()' >Registrujte se</ion-button>
       </div>
     </ion-card-content>
   </ion-card>

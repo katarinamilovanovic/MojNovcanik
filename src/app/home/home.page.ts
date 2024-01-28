@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 import { Router } from '@angular/router';
 import { AuthenticationService } from '../service/authentication.service';
+import { PickCollectionPage } from '../pick-collection/pick-collection.page';
 
 @Component({
   selector: 'app-home',
@@ -12,7 +14,7 @@ export class HomePage implements OnInit{
   public password: any;
 
   constructor(
-
+    public modalCtrl: ModalController,
     public router: Router,
     public authenticationService: AuthenticationService
   ) {}
@@ -21,7 +23,7 @@ export class HomePage implements OnInit{
   ngOnInit(): void {
     //throw new Error('Method not implemented.');
   }
-
+  
   login(){
     this.authenticationService.loginWithEmail({email:this.email,password:this.password}).then(res=>{
       console.log("Prosao login");
@@ -32,6 +34,7 @@ export class HomePage implements OnInit{
         this.authenticationService.getDetails({uid:res.user.uid}).subscribe(res=>{
           console.log(res);
         //alert('Welcome '+ res['name']);
+
       },err=>{
         console.log(err);
       });
@@ -42,6 +45,12 @@ export class HomePage implements OnInit{
     })
   }
 
+  async goToPickCollectionPage() {
+    const modal = await this.modalCtrl.create({
+      component: PickCollectionPage
+    })
+    return await modal.present();
+  }
 
   signup(){
     this.router.navigateByUrl('register')

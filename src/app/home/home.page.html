@@ -1,7 +1,5 @@
 <ion-content class="ion-padding">
-  <ion-img src="assets/images/header.png"></ion-img>
-
-
+  <ion-img src="assets/images/header.svg"></ion-img>
 
   <ion-card>
     <ion-card-header>
@@ -16,18 +14,15 @@
         </ion-item>
         <ion-item>
           <ion-label position='floating'>Password</ion-label>
-          <ion-input [(ngModel)]='password'></ion-input>
+          <ion-input [(ngModel)]='password' placeholder="************" type="password"></ion-input>
         </ion-item>
-        <ion-button size="full" (click)='login()'>LOG IN</ion-button>
+        <ion-button size="full" (click)='login()' (click)="goToPickCollectionPage()" type="submit">LOG IN</ion-button>
         <div>
           <br>
-          <h5 (click)='signup()'>Nemate nalog? <ion-text>Registrujte se</ion-text></h5>
+          <h5>Nemate nalog? <ion-text (click)='signup()' class="link" >Registrujte se</ion-text></h5>
         </div>
       </div>
     </ion-card-content>
   </ion-card>
-
-
-
 
 </ion-content>

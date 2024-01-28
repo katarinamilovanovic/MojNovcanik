@@ -4,6 +4,8 @@ import { ModalController } from '@ionic/angular';
 import { StartPage } from '../start/start.page';
 import { Start2Page } from '../start2/start2.page';
 
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-pick-collection',
   templateUrl: './pick-collection.page.html',
@@ -12,7 +14,7 @@ import { Start2Page } from '../start2/start2.page';
 export class PickCollectionPage implements OnInit {
 
   constructor(
-    public modalCtrl: ModalController) { }
+    public modalCtrl: ModalController, private router: Router) { }
 
   
 

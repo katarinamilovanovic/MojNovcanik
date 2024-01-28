@@ -9,6 +9,24 @@ ion-content {
   margin-top: 10px;
 }
 
+ion-img{
+  max-width: 100%;
+  max-height: 100%;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+ion-card{
+  position: relative;
+  margin-top: 120px;
+}
+
+
+ion-text{
+  color: blue;
+}
 
 
 
