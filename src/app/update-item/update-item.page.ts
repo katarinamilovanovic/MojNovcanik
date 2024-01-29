@@ -24,6 +24,7 @@ export class UpdateItemPage implements OnInit {
   async updateCost() {
 
     await this.dataService.updateCost(this.cost);
+    this.dismiss();
   }
 
 

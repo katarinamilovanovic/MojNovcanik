@@ -24,6 +24,7 @@ export class UpdateItem2Page implements OnInit {
   async updateIncome() {
 
     await this.dataService.updateIncome(this.income);
+    this.dismiss();
   }
 
 

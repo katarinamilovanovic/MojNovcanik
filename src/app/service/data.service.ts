@@ -79,6 +79,7 @@ export class DataService {
       category: income.category,
       amount: income.amount
     });
+    
   }
 
 
